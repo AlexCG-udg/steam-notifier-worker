@@ -1,0 +1,27 @@
+name = "steam-notifier"
+main = "index.js"
+compatibility_date = "2024-11-01"
+compatibility_flags = ["nodejs_compat"]
+
+# ─── Cron trigger ─────────────────────────────────────────────────────────────
+# Fires every day at 20:00 UTC
+[triggers]
+crons = ["0 20 * * *"]
+
+# ─── KV Namespace ─────────────────────────────────────────────────────────────
+# After running `npx wrangler kv namespace create STEAM_KV` and
+# `npx wrangler kv namespace create STEAM_KV --preview`, replace the
+# placeholder IDs below with the real ones shown by Wrangler.
+[[kv_namespaces]]
+binding  = "STEAM_KV"
+id       = "9f40a445e75a4425ab0187740ad8de93"
+preview_id = "9e94964198834569ac1d8a537fd9ed13"
+
+# ─── Secrets ──────────────────────────────────────────────────────────────────
+# Set this secret once with:
+#   npx wrangler secret put RESEND_API_KEY
+# Do NOT hard-code it here.
+
+# ─── Local dev ────────────────────────────────────────────────────────────────
+[dev]
+port = 8787
